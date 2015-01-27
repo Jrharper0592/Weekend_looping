@@ -191,14 +191,12 @@ var customers = [{
 
 console.log(customers);
 
-var projections = customers
-customers.filter(function(c) {
+var projections = customers.filter(function(c) {
     // YOUR CODE HERE
     // i need to return the frist names in the correct order.
        return c.firstname[0].toLowerCase() === 'j';
 })
-projections =
-projections.map(function(c) {
+.map(function(c) {
     // YOUR CODE HERE
     // now i need to set the new order to a new array.
      return { 
