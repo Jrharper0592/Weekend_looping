@@ -12,99 +12,105 @@
 
 // 0. write your own forEach() that takes two arguments: an array, and a callback
 
-function forEach(array, callback){
-     for(var i = 0; i < array.length; i++){
-       callback(array[i]);
-     }
+function forEach(array, callback) {
+    for (var i = 0; i < array.length; i++) {
+        callback(array[i]);
+    }
 }
 
 // testing your code with console.assert
 var total = 1;
-forEach([1, 2, 3, 4], function(a){ total *= a; });
+forEach([1, 2, 3, 4], function(a) {
+    total *= a;
+});
 // and finally assert; if this fails, the program stops
 console.log(total === 24);
 
 
 // 1. calculate the sum of numbers (returns the sum (A NUMBER))
 
-function sum(){
+function sum() {
     // parse arguments into an array
     var args = [].slice.call(arguments);
     var total = 0
-    forEach(args, function(a){total += a;})
+    forEach(args, function(a) {
+        total += a;
+    })
     return total
-//     // .. do something with each element of args
-//     // YOUR CODE HERE
+        //     // .. do something with each element of args
+        //     // YOUR CODE HERE
 }
 
-console.log( sum(1, 2, 3, 4, 5) === 15 )
+console.log(sum(1, 2, 3, 4, 5) === 15)
 
 // // 2. calculate the average of numbers (returns the average (A NUMBER))
 
-function average(){
-//     // parse arguments into an array
+function average() {
+    //     // parse arguments into an array
     var total = 0
     var args = [].slice.call(arguments);
-    forEach(args, function(a){total += a;})
+    forEach(args, function(a) {
+        total += a;
+    })
     return total / args.length;
 
 
-//     // .. do something with each element of args
-//     // YOUR CODE HERE
+    //     // .. do something with each element of args
+    //     // YOUR CODE HERE
 }
 
-console.log( average(2, 4, 6, 8) === 5 )
+console.log(average(2, 4, 6, 8) === 5)
 
 // // 3. find the largest number of the inputs (returns the largest input (A NUMBER))
 
-function largest(){
-//     // parse arguments into an array
+function largest() {
+    //     // parse arguments into an array
     var args = [].slice.call(arguments);
     var L = 0
-    for(var i = 0; i < args.length; i++){
-        if(L < args[i]){
+    for (var i = 0; i < args.length; i++) {
+        if (L < args[i]) {
             L = args[i];
         }
     }
     return L;
-//     // .. do something with each element of args
-//     // YOUR CODE HERE
+    //     // .. do something with each element of args
+    //     // YOUR CODE HERE
 }
 
-console.log( largest(2, 4, 6, 8) === 8 )
+console.log(largest(2, 4, 6, 8) === 8)
 
 // // 4. find the longest string of the inputs (returns the longest input (A STRING))
 
-function longest(){
-//     // parse arguments into an array
+function longest() {
+    //     // parse arguments into an array
     var args = [].slice.call(arguments);
     var num = ""
-    for(var i = 0; i < args.length; i++){
-        if(num.length < args[i].length){
+    for (var i = 0; i < args.length; i++) {
+        if (num.length < args[i].length) {
             num = args[i];
         }
 
-    }return num
-//     // .. do something with each element of args
-//     // YOUR CODE HERE
+    }
+    return num
+        //     // .. do something with each element of args
+        //     // YOUR CODE HERE
 }
 
-console.log( longest("two", "four", "six", "eight") === "eight" )
+console.log(longest("two", "four", "six", "eight") === "eight")
 
 // // 5. write a function that can sort an array of Date objects (returns a NEW ARRAY of Date's)
 
-function sort(){
-//     // parse arguments into an array
+function sort() {
+    //     // parse arguments into an array
     var args = [].slice.call(arguments);
-    for(var i = 0; i < args.length; i++){
-        if(args[i] < args[i+1]){
-            args[i] = args[i+1]
-        }
-    }return Args[i]
-//     // .. do something with each element of args
-//     // YOUR CODE HERE
-}
 
+    //     // .. do something with each element of args
+    //     // YOUR CODE HERE
+    var sortedargs = args.sort(function(a, b) {
+        return a > b ? 1 : -1
+    })
+    return sortedargs
+}
 var dates = [
     new Date("Oct 2, 2015"),
     new Date("Oct 1, 2015"),
@@ -115,13 +121,13 @@ var dates = [
 
 var sorted = sort(dates[0], dates[1], dates[2], dates[3], dates[4]);
 
-console.assert(
+console.log(
     sorted[0] === dates[3] &&
     sorted[1] === dates[2] &&
     sorted[2] === dates[4] &&
     sorted[3] === dates[1] &&
     sorted[4] === dates[0]
-)
+);
 
 // /**
 //  * PART II
@@ -133,31 +139,45 @@ console.assert(
 //  */
 
 // // .sort()
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();
 
+console.log(fruits)
 // // .concat()
-
+var first = "Hello ";
+var end = "world!";
+var res = first.concat(end);
 // // .indexOf()
-
+var str = "hey, welcome to javascript.";
+var n = str.indexOf("welcome");
 // // .split()
-
+var str = "whats up doc?";
+var res = str.split(" ");
 // // .join()
-
+var color = ["Blue", "Orange", "Green", "Red"];
+var energy = color.join();
 // // .pop()
-
+var color = ["Blue", "Orange", "Green", "Red"];
+color.pop();
 // // .push()
-
+var color = ["Blue", "Orange", "Green", "Red"];
+color.push("Purple");
 // // .slice()
-
+var color = ["Blue", "Orange", "Green", "Red", "Purple"];
+var ColorWheel = color.slice(1, 3);
 // // .splice()
-
+var food = ["banana", "popcorn", "apple", "sandwich"];
+food.splice(2, 0, "pie", "cereal");
 // // .shift()
-
+var color = ["Blue", "Orange", "Green", "Red"];
+color.shift();
 // // .unshift()
-
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon","Pineapple");
 // // .filter()
-
+// see part 3.
 // // .map()
-
+// see part 3.
 // /**
 //  * PART III
 //  *
@@ -192,26 +212,25 @@ var customers = [{
 console.log(customers);
 
 var projections = customers.filter(function(c) {
-    // YOUR CODE HERE
-    // i need to return the frist names in the correct order.
-       return c.firstname[0].toLowerCase() === 'j';
-})
-.map(function(c) {
-    // YOUR CODE HERE
-    // now i need to set the new order to a new array.
-     return { 
-            name: [c.firstname, c.lastname].join(" ") 
+        // YOUR CODE HERE
+        // i need to return the frist names in the correct order.
+        return c.firstname[0].toLowerCase() === 'j';
+    })
+    .map(function(c) {
+        // YOUR CODE HERE
+        // now i need to set the new order to a new array.
+        return {
+            name: [c.firstname, c.lastname].join(" ")
         };
-})
-console.log(projections);
+    })
 
-projections.sort(function sortByName(c1, c2) {
-//     "use strict";
-//     //...
-// now i need to sort the names in the correct decending order.
- return v1.name > v2.name ? 1 : -1;
+projections.sort(function(c1, c2) {
+    //     "use strict";
+    //     //...
+    // now i need to sort the names in the correct decending order.
+
+    return c1.name > c2.name ? 1 : -1;
 });
 // }
 
 console.log(projections);
-
